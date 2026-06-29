@@ -52,8 +52,8 @@ MAIN_MENU = ReplyKeyboardMarkup([
 ], resize_keyboard=True)
 
 NEWS_QUERIES = {
-    "ai_business": "AI OR OpenAI OR Google AI OR Meta AI OR Apple AI OR Tesla AI business technology",
-    "thai_business": "ธุรกิจ OR เศรษฐกิจ OR ลงทุน OR หุ้น OR เทคโนโลยี AI",
+    "ai_business": "AI OR OpenAI OR Google AI OR Meta AI OR Apple AI OR Tesla AI business technology investment economy",
+    "thai_business": "ธุรกิจ OR เศรษฐกิจ OR ลงทุน OR หุ้น OR กองทุน OR ดอกเบี้ย OR เงินเฟ้อ OR เทคโนโลยี AI",
     "ai_trend": "artificial intelligence trends OR generative AI OR AI agents OR OpenAI OR Google DeepMind",
 }
 
@@ -79,12 +79,34 @@ def build_system_prompt() -> str:
 3. ตอบ FAQ อัตโนมัติ
 4. แนะนำ Telegram Username รูปแบบ @username อย่างน้อย 5 ตัว
 
-ความเชี่ยวชาญพิเศษ — ข่าวสารและธุรกิจ:
-- สรุปและวิเคราะห์ข่าวธุรกิจ เศรษฐกิจ การลงทุน
+ความเชี่ยวชาญพิเศษ — ข่าวสาร ธุรกิจ และการลงทุน:
+- สรุปและวิเคราะห์ข่าวธุรกิจ เศรษฐกิจ การลงทุน และเทคโนโลยี
 - ติดตามข่าว AI และเทคโนโลยี เช่น OpenAI, Google, Meta, Apple, Tesla
-- วิเคราะห์เทรนด์ธุรกิจและโอกาสการลงทุน
-- อธิบายเทคโนโลยี AI ใหม่ ๆ ให้เข้าใจง่าย
-- ให้ความเห็นเชิงกลยุทธ์จากข่าวที่เกิดขึ้น
+- วิเคราะห์เทรนด์ธุรกิจ โอกาสการตลาด และความเสี่ยงเชิงกลยุทธ์
+- อธิบายเทคโนโลยี AI ใหม่ ๆ ให้เข้าใจง่ายและเชื่อมโยงกับการทำธุรกิจ
+- ให้ความเห็นเชิงกลยุทธ์จากข่าวที่เกิดขึ้น โดยแยก "ข้อเท็จจริง" กับ "มุมมอง/ข้อเสนอแนะ" ให้ชัดเจน
+
+ความรู้ด้านธุรกิจที่ควรใช้ช่วยคุณหมู:
+- วิเคราะห์โมเดลธุรกิจ, Business Model Canvas, SWOT, 5 Forces, PESTEL, TAM/SAM/SOM
+- วางแผนการตลาด, branding, positioning, customer segmentation, persona, funnel, CRM, retention
+- วางกลยุทธ์ยอดขาย, pricing, promotion, channel, e-commerce, social commerce, partnership
+- วิเคราะห์ตัวเลขธุรกิจ เช่น รายได้ ต้นทุน กำไรขั้นต้น กำไรสุทธิ cash flow, break-even, unit economics, CAC, LTV, ROI
+- ช่วยคิด KPI, dashboard, SOP, operation, inventory, customer service และการขยายทีม
+- ช่วยทำแผนธุรกิจแบบกระชับ เช่น เป้าหมาย 30/60/90 วัน, action plan, checklist, risk list
+
+ความรู้ด้านการลงทุนและการเงินส่วนบุคคล:
+- อธิบายหุ้น, กองทุนรวม, ETF, ตราสารหนี้, เงินฝาก, ทองคำ, อสังหา, REIT, คริปโต และธุรกิจส่วนตัว
+- วิเคราะห์พื้นฐานการลงทุน เช่น งบการเงิน, รายได้, กำไร, หนี้สิน, ROE, ROA, margin, cash flow, P/E, P/BV, dividend yield, DCF แบบเข้าใจง่าย
+- อธิบาย macro ที่มีผลต่อการลงทุน เช่น ดอกเบี้ย เงินเฟ้อ GDP ค่าเงิน ราคาน้ำมัน นโยบายรัฐ และวัฏจักรเศรษฐกิจ
+- ช่วยจัดกรอบคิดเรื่อง asset allocation, diversification, DCA, rebalancing, emergency fund, liquidity และ risk management
+- ก่อนให้คำแนะนำเชิงลงทุน ให้ถามหรือคาดกรอบความเสี่ยง ระยะเวลา เงินลงทุน สภาพคล่อง และเป้าหมายของผู้ใช้
+
+กติกาความปลอดภัยเรื่องธุรกิจ/การลงทุน:
+- ห้ามรับประกันผลตอบแทน ห้ามฟันธงว่า "ซื้อ/ขายแน่นอน" หรือชี้นำแบบมั่นใจเกินไป
+- ให้ข้อมูลเพื่อการศึกษาและการตัดสินใจเท่านั้น ไม่ใช่คำแนะนำการลงทุนส่วนบุคคลแบบผู้มีใบอนุญาต
+- ถ้าผู้ใช้ถามราคาหุ้น ข่าวล่าสุด ตัวเลขงบ หรือข้อมูลตลาดปัจจุบัน ให้ใช้บริบทข่าวสดที่ระบบแนบมาเป็นหลัก ถ้าไม่มีให้บอกว่ายืนยันข้อมูลล่าสุดไม่ได้
+- เมื่อตอบเรื่องลงทุน ควรสรุปทั้ง upside, downside, risk, scenario และสิ่งที่ควรตรวจสอบต่อ
+- ถ้าเป็นเรื่องเงินก้อนใหญ่ ภาษี กฎหมาย หรือผลิตภัณฑ์ซับซ้อน ให้แนะนำตรวจสอบกับผู้เชี่ยวชาญ/ที่ปรึกษาที่มีใบอนุญาตด้วยค่ะ
 
 กติกาสำคัญเรื่องข่าวล่าสุด:
 - ถ้าผู้ใช้ถามข่าวล่าสุด/วันนี้/เทรนด์ตอนนี้ ให้ใช้ "บริบทข่าวสด" ที่ระบบแนบมาเป็นหลัก
@@ -297,7 +319,7 @@ async def cmd_news(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     news_context = await get_news_context("ai_business", limit=6)
     news = await ask_nuan(
         update.effective_user.id,
-        "สรุปข่าว AI และธุรกิจสำคัญล่าสุด 5 เรื่อง พร้อมวิเคราะห์ผลกระทบต่อธุรกิจ ตอบเป็นภาษาไทยแบบกระชับ",
+        "สรุปข่าว AI ธุรกิจ เศรษฐกิจ และการลงทุนสำคัญล่าสุด 5 เรื่อง พร้อมวิเคราะห์ผลกระทบต่อธุรกิจและนักลงทุน ตอบเป็นภาษาไทยแบบกระชับ",
         news_context=news_context,
     )
     await reply_long(update, f"📰 ข่าว AI & ธุรกิจล่าสุดค่ะ\n\n{news}", reply_markup=MAIN_MENU)
@@ -312,7 +334,7 @@ async def cmd_aitrend(update: Update, context: ContextTypes.DEFAULT_TYPE) -> Non
     news_context = await get_news_context("ai_trend", limit=6)
     trend = await ask_nuan(
         update.effective_user.id,
-        "วิเคราะห์เทรนด์ AI ที่กำลังมาแรงตอนนี้ 5 เรื่อง พร้อมบอกว่าแต่ละเรื่องมีผลต่อธุรกิจอย่างไร ตอบเป็นภาษาไทยกระชับ",
+        "วิเคราะห์เทรนด์ AI ที่กำลังมาแรงตอนนี้ 5 เรื่อง พร้อมบอกว่าแต่ละเรื่องมีผลต่อธุรกิจและการลงทุนอย่างไร ตอบเป็นภาษาไทยกระชับ",
         news_context=news_context,
     )
     await reply_long(update, f"🤖 เทรนด์ AI ที่น่าจับตาค่ะ\n\n{trend}", reply_markup=MAIN_MENU)
@@ -365,7 +387,14 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
     lowered = text.lower()
     is_order = any(kw in lowered for kw in ["สั่ง", "ซื้อ", "order", "จอง"])
-    news_kw = ["ข่าว", "news", "เทรนด์", "trend", "ai", "openai", "google", "meta", "ธุรกิจ", "เศรษฐกิจ", "หุ้น", "ลงทุน"]
+    news_kw = [
+        "ข่าว", "news", "เทรนด์", "trend", "ai", "openai", "google", "meta",
+        "ธุรกิจ", "เศรษฐกิจ", "หุ้น", "ลงทุน", "การลงทุน", "กองทุน", "etf",
+        "ตราสารหนี้", "ทอง", "อสังหา", "reit", "คริปโต", "bitcoin", "btc",
+        "ดอกเบี้ย", "เงินเฟ้อ", "ค่าเงิน", "ตลาดหุ้น", "set", "mai", "nasdaq", "s&p",
+        "valuation", "roe", "roa", "pe", "p/e", "cashflow", "cash flow", "กำไร", "รายได้",
+        "marketing", "sales", "roi", "business model", "startup", "sme"
+    ]
     is_news = any(kw in lowered for kw in news_kw)
 
     news_context = ""
@@ -376,8 +405,8 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
     if is_news:
         enriched = (
-            f"[คำถามเกี่ยวกับข่าว/ธุรกิจ/AI]\n{text}\n\n"
-            "ตอบโดยใช้บริบทข่าวสดที่แนบมาเป็นหลัก วิเคราะห์ผลกระทบ และให้คำแนะนำเชิงกลยุทธ์แบบกระชับ"
+            f"[คำถามเกี่ยวกับข่าว/ธุรกิจ/การลงทุน/AI]\n{text}\n\n"
+            "ตอบโดยใช้บริบทข่าวสดที่แนบมาเป็นหลักถ้ามี วิเคราะห์ผลกระทบ โอกาส ความเสี่ยง และให้คำแนะนำเชิงกลยุทธ์แบบกระชับ"
         )
         reply = await ask_nuan(uid, enriched, news_context=news_context)
     else:
